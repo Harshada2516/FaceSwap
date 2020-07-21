@@ -134,8 +134,8 @@ public class CloudletFragment<name> extends Fragment implements CompoundButton.O
 
         selectServerSpinner=(Spinner) view.findViewById(R.id.select_server_spinner);
         cloudletRunDemoButton =(Button)view.findViewById(R.id.cloudletRunDemoButton);
-     //   addPersonButton = (Button)view.findViewById(R.id.addPersonButton);
-//        uploadStateFromFileButton = (Button)view.findViewById(R.id.uploadFromFileButton);
+           addPersonButton = (Button)view.findViewById(R.id.addPersonButton);
+//      uploadStateFromFileButton = (Button)view.findViewById(R.id.uploadFromFileButton);
 ////        uploadStateFromGoogleDriveButton = (Button)
 ////                view.findViewById(R.id.uploadFromGoogleDriveButton);
 
@@ -158,13 +158,13 @@ public class CloudletFragment<name> extends Fragment implements CompoundButton.O
             }
         });
 
-//        addPersonButton.setOnClickListener(new Button.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Dialog dg = createAddPersonDialog("Train", "Enter Person's name:");
-//                dg.show();
-//            }
-//        });
+        addPersonButton.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Dialog dg = createAddPersonDialog("Train", "Enter Person's name:");
+                dg.show();
+            }
+        });
 
 //        uploadStateFromFileButton.setOnClickListener(new View.OnClickListener() {
 //            @Override
