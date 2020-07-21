@@ -134,12 +134,12 @@ public class CloudletFragment<name> extends Fragment implements CompoundButton.O
 
         selectServerSpinner=(Spinner) view.findViewById(R.id.select_server_spinner);
         cloudletRunDemoButton =(Button)view.findViewById(R.id.cloudletRunDemoButton);
-     //   addPersonButton = (Button)view.findViewById(R.id.addPersonButton);
+       // addPersonButton = (Button)view.findViewById(R.id.addPersonButton);
 //        uploadStateFromFileButton = (Button)view.findViewById(R.id.uploadFromFileButton);
 ////        uploadStateFromGoogleDriveButton = (Button)
 ////                view.findViewById(R.id.uploadFromGoogleDriveButton);
 
-        tb = (TableLayout)view.findViewById(R.id.trainedTable);
+       // tb = (TableLayout)view.findViewById(R.id.trainedTable);
         typeRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -266,26 +266,26 @@ public class CloudletFragment<name> extends Fragment implements CompoundButton.O
         return true;
     }
 
+//
+//    private void launchTrainingActivity(){
+//        String name = inputDialogResult;
+//        if (checkName(name)) {
+//            Log.d(TAG, name);
+//            trainedPeople.add(name);
+//            addPersonUIRow(name);
+//            Log.d(TAG, "add name :" + name);
+//            //get ip from preference
+//            startGabrielActivityForTraining(name, getMyAcitivty().currentServerIp);
+//        }
+//    }
 
-    private void launchTrainingActivity(){
-        String name = inputDialogResult;
-        if (checkName(name)) {
-            Log.d(TAG, name);
-            trainedPeople.add(name);
-            addPersonUIRow(name);
-            Log.d(TAG, "add name :" + name);
-            //get ip from preference
-            startGabrielActivityForTraining(name, getMyAcitivty().currentServerIp);
-        }
-    }
-
-    DialogInterface.OnClickListener launchTrainingActivityAction=new DialogInterface.OnClickListener() {
-        @Override
-        public void onClick(DialogInterface dialog, int which) {
-            launchTrainingActivity();
-            return;
-        }
-    };
+//    DialogInterface.OnClickListener launchTrainingActivityAction=new DialogInterface.OnClickListener() {
+//        @Override
+//        public void onClick(DialogInterface dialog, int which) {
+//            launchTrainingActivity();
+//            return;
+//        }
+//    };
 
 
 
@@ -295,24 +295,24 @@ public class CloudletFragment<name> extends Fragment implements CompoundButton.O
      * @param msg
      * @return
      */
-    public Dialog createAddPersonDialog(String title, String msg) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getMyAcitivty());
-        builder.setTitle(title);
-        builder.setMessage(msg);
-
-        // Use an EditText view to get user input.
-        final EditText input = new EditText(getMyAcitivty());
-        input.setText("");
-        input.setVisibility(view.VISIBLE);
-        builder.setView(input);
-
-        builder.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int whichButton) {
-                String value = input.getText().toString();
-                Log.d(TAG, "user input: " + value);
-                inputDialogResult = value;
-                launchTrainingActivity();
+//    public Dialog createAddPersonDialog(String title, String msg) {
+//        AlertDialog.Builder builder = new AlertDialog.Builder(getMyAcitivty());
+//        builder.setTitle(title);
+//        builder.setMessage(msg);
+//
+//        // Use an EditText view to get user input.
+//        final EditText input = new EditText(getMyAcitivty());
+//        input.setText("");
+//        input.setVisibility(view.VISIBLE);
+//        builder.setView(input);
+//
+//        builder.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int whichButton) {
+//                String value = input.getText().toString();
+//                Log.d(TAG, "user input: " + value);
+//                inputDialogResult = value;
+//                launchTrainingActivity();
 //              AlertDialog dg =
 //                        SelectServerAlertDialog.createDialog(
 //                                getContext(),
@@ -321,155 +321,155 @@ public class CloudletFragment<name> extends Fragment implements CompoundButton.O
 //                                launchTrainingActivityAction, cancelAction,
 //                               true);
 //               dg.show();
-            }
-        });
-        builder.setNegativeButton("Cancel", SelectServerAlertDialog.cancelAction);
-        return builder.create();
-    }
-
-
-    private String stripQuote(String input){
-        String output = input.replaceAll("^\"|\"$", "");
-        return output;
-    }
-
-    public void populatePersonTable(String[] people){
-        for (String person:people){
-            person=stripQuote(person);
-            if (!trainedPeople.contains(person)){
-                addPersonUIRow(person);
-                trainedPeople.add(person);
-            }
-        }
-
-        //TODO: to check if comment out lines below will change the scrolling behavior
-//        if (getMyAcitivty().scrollView!=null){
-//            getMyAcitivty().scrollView.invalidate();
-//        } else {
-//            Log.d(TAG, "scroll view is not rendered yet");
+//            }
+//        });
+//        builder.setNegativeButton("Cancel", SelectServerAlertDialog.cancelAction);
+//        return builder.create();
+//    }
+//
+//
+//    private String stripQuote(String input){
+//        String output = input.replaceAll("^\"|\"$", "");
+//        return output;
+//    }
+//
+//    public void populatePersonTable(String[] people){
+//        for (String person:people){
+//            person=stripQuote(person);
+//            if (!trainedPeople.contains(person)){
+//                addPersonUIRow(person);
+//                trainedPeople.add(person);
+//            }
 //        }
+//
+//        //TODO: to check if comment out lines below will change the scrolling behavior
+////        if (getMyAcitivty().scrollView!=null){
+////            getMyAcitivty().scrollView.invalidate();
+////        } else {
+////            Log.d(TAG, "scroll view is not rendered yet");
+////        }
+//
+//    }
+//
+//    private void addPersonUIRow(String name) {
+//        //create a new table row
+//        TableRow tr = new TableRow(getContext());
+//        TableRow.LayoutParams trTlp = new TableRow.LayoutParams(
+//                0,
+//                TableLayout.LayoutParams.WRAP_CONTENT
+//        );
+//        tr.setLayoutParams(trTlp);
+//
+//        //create name view
+//        TextView nameView = new TextView(getContext());
+//        nameView.setText(name);
+//        nameView.setTextSize(20);
+//        TableRow.LayoutParams tlp1 = new TableRow.LayoutParams(
+//                TableLayout.LayoutParams.WRAP_CONTENT,
+//                TableLayout.LayoutParams.MATCH_PARENT
+//        );
+//        tlp1.column=0;
+//        nameView.setLayoutParams(tlp1);
+//
+//        //TODO: switch add on toggle listener
+//        Switch sw = new Switch(getContext());
+//        TableRow.LayoutParams tlp2 = new TableRow.LayoutParams(
+//                TableLayout.LayoutParams.WRAP_CONTENT,
+//                TableLayout.LayoutParams.MATCH_PARENT
+//        );
+//        tlp2.column=1;
+//        tlp2.gravity=Gravity.CENTER_HORIZONTAL;
+//        sw.setTextOff("OFF");
+//        sw.setTextOn("ON");
+//        sw.setHeight(20);
+//        //before listener so that it won't fire off
+//        if (faceTable.containsKey(name)){
+//            sw.setChecked(true);
+//        }
+//        sw.setOnCheckedChangeListener(this);
+//        sw.setLayoutParams(tlp2);
+//
+//        //create sub view
+//        TextView subView = new TextView(getContext());
+//        subView.setText("");
+//        subView.setTextSize(20);
+//        TableRow.LayoutParams tlp3 = new TableRow.LayoutParams(
+//                TableLayout.LayoutParams.WRAP_CONTENT,
+//                TableLayout.LayoutParams.MATCH_PARENT
+//        );
+//        tlp3.column=2;
+//        subView.setLayoutParams(tlp3);
+//        subView.setVisibility(View.INVISIBLE);
+//        if (faceTable.containsKey(name)){
+//            subView.setText(faceTable.get(name));
+//            subView.setVisibility(View.VISIBLE);
+//        }
+//
+//        //create delete button
+//        ImageView deleteView = new ImageView(getContext());
+//        deleteView.setImageResource(R.drawable.ic_delete_black_24dp);
+//        TableRow.LayoutParams tlp4 = new TableRow.LayoutParams(
+//                TableLayout.LayoutParams.WRAP_CONTENT,
+//                TableLayout.LayoutParams.MATCH_PARENT
+//        );
+//        tlp4.column=3;
+//        deleteView.setLayoutParams(tlp4);
+//        deleteView.setOnClickListener(new ImageView.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String toBeRemovedName=null;
+//                PersonUIRow toBeRemovedRow=null;
+//                //find the name of the person to be removed
+//                for (PersonUIRow uiRow: personUIList){
+//                    if (uiRow.deleteView == v){
+//                        toBeRemovedName = (String) uiRow.nameView.getText();
+//                        toBeRemovedRow = uiRow;
+//                        break;
+//                    }
+//                }
+//                if (null != toBeRemovedName){
+//                    GabrielConfigurationAsyncTask task =
+//                            new GabrielConfigurationAsyncTask(getActivity(),
+//                                    getMyAcitivty().currentServerIp,
+//                                    GabrielClientActivity.VIDEO_STREAM_PORT,
+//                                    GabrielClientActivity.RESULT_RECEIVING_PORT,
+//                                    Const.GABRIEL_CONFIGURATION_REMOVE_PERSON);
+//                    task.execute(toBeRemovedName);
+//                    trainedPeople.remove(toBeRemovedName);
+//                }
+//
+//                //remove current line
+//                if (null != toBeRemovedRow){
+//                    personUIList.remove(toBeRemovedRow);
+//                    tb.removeView(toBeRemovedRow.tr);
+//                } else {
+//                    Log.e(TAG, "delete icon clicked, but didn't find any row to remove");
+//                }
+//
+//            }
+//        });
+//
+//        tr.addView(nameView);
+//        tr.addView(sw);
+//        tr.addView(subView);
+//        tr.addView(deleteView);
+//
+//        tb.addView(tr,
+//                new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,
+//                        TableLayout.LayoutParams.WRAP_CONTENT));
+//
+//        PersonUIRow uiRow = new PersonUIRow(tr,nameView, sw, subView, deleteView);
+//        personUIList.add(uiRow);
+//    }
 
-    }
-
-    private void addPersonUIRow(String name) {
-        //create a new table row
-        TableRow tr = new TableRow(getContext());
-        TableRow.LayoutParams trTlp = new TableRow.LayoutParams(
-                0,
-                TableLayout.LayoutParams.WRAP_CONTENT
-        );
-        tr.setLayoutParams(trTlp);
-
-        //create name view
-        TextView nameView = new TextView(getContext());
-        nameView.setText(name);
-        nameView.setTextSize(20);
-        TableRow.LayoutParams tlp1 = new TableRow.LayoutParams(
-                TableLayout.LayoutParams.WRAP_CONTENT,
-                TableLayout.LayoutParams.MATCH_PARENT
-        );
-        tlp1.column=0;
-        nameView.setLayoutParams(tlp1);
-
-        //TODO: switch add on toggle listener
-        Switch sw = new Switch(getContext());
-        TableRow.LayoutParams tlp2 = new TableRow.LayoutParams(
-                TableLayout.LayoutParams.WRAP_CONTENT,
-                TableLayout.LayoutParams.MATCH_PARENT
-        );
-        tlp2.column=1;
-        tlp2.gravity=Gravity.CENTER_HORIZONTAL;
-        sw.setTextOff("OFF");
-        sw.setTextOn("ON");
-        sw.setHeight(20);
-        //before listener so that it won't fire off
-        if (faceTable.containsKey(name)){
-            sw.setChecked(true);
-        }
-        sw.setOnCheckedChangeListener(this);
-        sw.setLayoutParams(tlp2);
-
-        //create sub view
-        TextView subView = new TextView(getContext());
-        subView.setText("");
-        subView.setTextSize(20);
-        TableRow.LayoutParams tlp3 = new TableRow.LayoutParams(
-                TableLayout.LayoutParams.WRAP_CONTENT,
-                TableLayout.LayoutParams.MATCH_PARENT
-        );
-        tlp3.column=2;
-        subView.setLayoutParams(tlp3);
-        subView.setVisibility(View.INVISIBLE);
-        if (faceTable.containsKey(name)){
-            subView.setText(faceTable.get(name));
-            subView.setVisibility(View.VISIBLE);
-        }
-
-        //create delete button
-        ImageView deleteView = new ImageView(getContext());
-        deleteView.setImageResource(R.drawable.ic_delete_black_24dp);
-        TableRow.LayoutParams tlp4 = new TableRow.LayoutParams(
-                TableLayout.LayoutParams.WRAP_CONTENT,
-                TableLayout.LayoutParams.MATCH_PARENT
-        );
-        tlp4.column=3;
-        deleteView.setLayoutParams(tlp4);
-        deleteView.setOnClickListener(new ImageView.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String toBeRemovedName=null;
-                PersonUIRow toBeRemovedRow=null;
-                //find the name of the person to be removed
-                for (PersonUIRow uiRow: personUIList){
-                    if (uiRow.deleteView == v){
-                        toBeRemovedName = (String) uiRow.nameView.getText();
-                        toBeRemovedRow = uiRow;
-                        break;
-                    }
-                }
-                if (null != toBeRemovedName){
-                    GabrielConfigurationAsyncTask task =
-                            new GabrielConfigurationAsyncTask(getActivity(),
-                                    getMyAcitivty().currentServerIp,
-                                    GabrielClientActivity.VIDEO_STREAM_PORT,
-                                    GabrielClientActivity.RESULT_RECEIVING_PORT,
-                                    Const.GABRIEL_CONFIGURATION_REMOVE_PERSON);
-                    task.execute(toBeRemovedName);
-                    trainedPeople.remove(toBeRemovedName);
-                }
-
-                //remove current line
-                if (null != toBeRemovedRow){
-                    personUIList.remove(toBeRemovedRow);
-                    tb.removeView(toBeRemovedRow.tr);
-                } else {
-                    Log.e(TAG, "delete icon clicked, but didn't find any row to remove");
-                }
-
-            }
-        });
-
-        tr.addView(nameView);
-        tr.addView(sw);
-        tr.addView(subView);
-        tr.addView(deleteView);
-
-        tb.addView(tr,
-                new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,
-                        TableLayout.LayoutParams.WRAP_CONTENT));
-
-        PersonUIRow uiRow = new PersonUIRow(tr,nameView, sw, subView, deleteView);
-        personUIList.add(uiRow);
-    }
-
-    private void startGabrielActivityForTraining(String name, String ip) {
-        //TODO: how to handle sync faces between cloud and cloudlet?
-        Const.GABRIEL_IP = ip;
-        Intent intent = new Intent(getContext(), GabrielClientActivity.class);
-        intent.putExtra("name", name);
-        startActivityForResult(intent, LAUNCHCODE);
-        Toast.makeText(getContext(), "training", Toast.LENGTH_SHORT).show();
-    }
+//    private void startGabrielActivityForTraining(String name, String ip) {
+//        //TODO: how to handle sync faces between cloud and cloudlet?
+//        Const.GABRIEL_IP = ip;
+//        Intent intent = new Intent(getContext(), GabrielClientActivity.class);
+//        intent.putExtra("name", name);
+//        startActivityForResult(intent, LAUNCHCODE);
+//        Toast.makeText(getContext(), "training", Toast.LENGTH_SHORT).show();
+//    }
 
 
     private String chosen = null;
